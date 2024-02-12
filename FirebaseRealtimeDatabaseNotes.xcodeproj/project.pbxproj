@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		142C9FDE2B7A703D002B74D4 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142C9FDD2B7A703D002B74D4 /* Student.swift */; };
 		1474D9262B73D4550037D885 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1474D9252B73D4550037D885 /* AppDelegate.swift */; };
 		1474D9282B73D4550037D885 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1474D9272B73D4550037D885 /* SceneDelegate.swift */; };
 		1474D92A2B73D4550037D885 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1474D9292B73D4550037D885 /* ViewController.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		142C9FDD2B7A703D002B74D4 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		1474D9222B73D4550037D885 /* FirebaseRealtimeDatabaseNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirebaseRealtimeDatabaseNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1474D9252B73D4550037D885 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1474D9272B73D4550037D885 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			children = (
 				1474D9252B73D4550037D885 /* AppDelegate.swift */,
 				1474D9272B73D4550037D885 /* SceneDelegate.swift */,
+				142C9FDD2B7A703D002B74D4 /* Student.swift */,
 				1474D9292B73D4550037D885 /* ViewController.swift */,
 				1474D92B2B73D4550037D885 /* Main.storyboard */,
 				1474D92E2B73D4570037D885 /* Assets.xcassets */,
@@ -282,6 +285,7 @@
 				1474D92A2B73D4550037D885 /* ViewController.swift in Sources */,
 				1474D9262B73D4550037D885 /* AppDelegate.swift in Sources */,
 				1474D9282B73D4550037D885 /* SceneDelegate.swift in Sources */,
+				142C9FDE2B7A703D002B74D4 /* Student.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
