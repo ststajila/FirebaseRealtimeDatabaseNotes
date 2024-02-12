@@ -6,14 +6,25 @@
 //
 
 import UIKit
+import FirebaseCore
+import FirebaseDatabase
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var nameTextField: UITextField!
+    var ref: DatabaseReference!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        ref = Database.database().reference()
+        
     }
 
-
+    @IBAction func save(_ sender: Any) {
+        var name = nameTextField.text
+        ref.child("students").childByAutoId().setValue(name)
+    }
+    
 }
 
