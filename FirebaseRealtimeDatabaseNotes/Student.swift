@@ -20,7 +20,22 @@ class Student{
         self.age = age
     }
     
+    init(dict: [String: Any]){
+        if let n = dict["name"] as? String{
+            name = n
+        } else{
+            name = "Unknown"
+        }
+        
+        if let a = dict["age"] as? Int{
+            age = a
+        } else{
+            age = 0
+        }
+    }
+    
     func saveToFirebase(){
+        
         let dict = ["name": name, "age": age] as [String:Any]
         ref.child("student2").childByAutoId().setValue(dict)
         
@@ -32,7 +47,8 @@ class Student{
     }
     
     func deleteFromFirebase(){
-            ref.child("students2").child(key).removeValue()
+        print(key)
+        ref.child("student2").child(key).removeValue()
         }
 
 }

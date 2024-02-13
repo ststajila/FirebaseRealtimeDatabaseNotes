@@ -41,12 +41,42 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                })
         
         
-        //called after .childAdded is done
-                ref.child("students").observeSingleEvent(of: .value, with: { snapshot in
-                        print("--inital load has completed and the last user was read--")
-                    print(self.names)
-                    })
+        ref.child("student2").observe(.childAdded, with: { (snapshot) in
+                   // snapshot is a dictionary with a key and a dictionary as a value
+                    // this gets the dictionary from each snapshot
+                    let dict = snapshot.value as! [String:Any]
+                   
+                    // building a Student object from the dictionary
+                    let s = Student(dict: dict)
+                    s.key = snapshot.key
+                    // adding the student object to the Student array
+                    
+            var add = true
+            for s1 in self.students{
+                if s.key == s1.key{
+                    add = false
+                }
+            }
+            
+            if add {
+                self.students.append(s)
+                self.tableViewOutlet.reloadData()
+            }
+                    
+        // should only add the student if the student isn’t already in the array
+        // good place to update the tableview also
+                    
+                })
+        
+        ref.child("student2").observe(.childRemoved) { snapshot in
+            for student in self.students {
+                if student.key == snapshot.key{
+                   
+                }
+            }
+        }
 
+        
     }
 
     @IBAction func save(_ sender: Any) {
@@ -75,7 +105,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         var student = Student(name: n, age: a)
         
-        students.append(student)
+        //students.append(student)
         
         student.saveToFirebase()
         
@@ -84,8 +114,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
         if editingStyle == .delete{
-            
             students[indexPath.row].deleteFromFirebase()
             students.remove(at: indexPath.row)
             tableView.reloadData()
