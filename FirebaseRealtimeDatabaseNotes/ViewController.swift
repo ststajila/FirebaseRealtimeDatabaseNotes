@@ -69,9 +69,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 })
         
         ref.child("student2").observe(.childRemoved) { snapshot in
-            for student in self.students {
-                if student.key == snapshot.key{
-                   
+            for i in 0 ..< self.students.count {
+                if self.students[i].key == snapshot.key{
+                    self.students.remove(at: i)
+                    self.tableViewOutlet.reloadData()
+                    break
                 }
             }
         }
